@@ -1,11 +1,17 @@
 <p id="notice"><%= notice %></p>
 
+<% if request.original_url.split('=').last.include? '/' %>
 <h1>All Articles</h1>
+<% else %>
+<h1>All <%= request.original_url.split('=').last %> Articles </h1>
+<% end %>
+
 
 <div class='container'>
   <%= @articles.each do |article| %>
     <h2><%= article.title %><h2>
-    <p><%= article.body %></p>
+    <%= image_tag article.image_url, display: 'inline-block' %>
+    <p><%= truncate(article.body, length: 200, display: 'inline-block' ) %></p>
   <% end %>
 </div>
 

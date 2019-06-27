@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  protect_from_forgery with: :exception
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
   # GET /articles
@@ -76,4 +77,5 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:title, :body, :image_url, :category_id)
     end
+
 end
