@@ -14,7 +14,8 @@
   <%= @article.body %>
 </p>
 
-
+<% if user_signed_in? %>
 <%= link_to 'Edit', edit_article_path(@article) %> |
+<% end %>
 <%= link_to 'Back', articles_path %>
 </div>
