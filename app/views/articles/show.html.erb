@@ -9,8 +9,11 @@
 
 <h1><%= @article.title %></h1>
 
+<div class='container'>
+  <%= image_tag @article.image_url, :alt => @article.title, align: 'right' %>
+</div>
+
 <p>
-  <%= image_tag @article.image_url, align: 'right' %>
   <%= @article.body %>
 </p>
 
