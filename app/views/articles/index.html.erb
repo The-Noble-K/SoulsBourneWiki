@@ -10,8 +10,8 @@
   <div class='well'>
     <%= @articles.each do |article| %>
     <h2><%= article.title %><h2><br>
-    <p><%= link_to 'Read More', article_path(article), :class => 'btn btn-default', display: 'inline-block' %></p>
-    <%= image_tag article.image_url, display: 'inline-block' %>
+    <p><%= link_to 'Read More', article_path(article), :class => 'btn btn-default', display: 'block' %></p>
+    <%= image_tag article.image_url, display: 'block' %>
     <h5><%= truncate(article.body, length: 200) %></h5>
     <% end %>
   </div>
