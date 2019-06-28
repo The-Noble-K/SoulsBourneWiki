@@ -22,42 +22,39 @@
       <li class="nav-item active">
         <a class="nav-link" href="<%= root_path %>">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%= articles_path %>">All Weapons</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">All Swords</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">All Axes</a>
-      </li>
+
+      <% if user_signed_in? %>
+
+        <li class="nav-item">
+          <a class='nav-link' href='<%= new_article_path %>'>New Article</a>
+        </li>
+        <li class="nav-item">
+          <a class='nav-link' href='<%= destroy_user_session_path %>'>Sign Out</a>
+        </li>
+
+      <% else %>
+
+        <li class="nav-item">
+          <a class='nav-link' href='<%= new_user_registration_path %>'>Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a class='nav-link' href='<%= new_user_session_path %>'>Sign In</a>
+        </li>
+
+      <% end %>
+
     </ul>
   </div>
 
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
+      
       <li class='nav-item'>
-        Logged in as ||
+        Logged in as '"00\\||//00"'
       </li>
-      <li class="nav-item">
-        <%= link_to 'New Article', new_article_path %> | 
-      </li>
-      <li class="nav-item">
-        | <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %>
-      </li>
-      <% else %>
-      <li class="nav-item">
-        <%= link_to "Sign Up", new_user_registration_path %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Sign In", new_user_session_path %>
-      </li>
-      <% end %>
-      </ul>
+      
     </div>
 
-      
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search">
       <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
@@ -72,7 +69,9 @@
     </div>
     <div class='col-lg-2'>
       <ul class='nav nav-pills'>
-        <li class='nav-item'><%= link_to 'All Swords', root_path, class: 'nav-link active' %></li>
+        <li class='nav-item'><%= link_to 'All Weapons', root_path, class: 'nav-link active' %></li>
+        <li class='nav-item'><%= link_to 'All Swords || ', root_path, class: 'nav-item' %></li>
+        <li class='nav-item'><%= link_to '|| All Axes', root_path, class: 'nav-item' %></li>
         <% Category.all.each do |category| %>
         <li class='nav-item'><%= link_to category.name, articles_path(category: category.name) %></li>
         <% end %>
