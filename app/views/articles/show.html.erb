@@ -1,18 +1,24 @@
-<div class='container'>
-<p id="notice"><%= notice %></p>
+<div class='jumbotron'>
+  <p id="notice"><%= notice %></p>
+  <div class='row'>
+    <div class='col-lg-7'>
+      <h1>
+        <%= @article.title %>
+      </h1>
+      <p>
+        <%= @article.body %>
+      </p>
+    </div>
+    <div class='col-lg-2'>
+      <%= image_tag @article.image_url, :alt => @article.title, float: 'right' %>
+    </div>
+  </div>
 
-<h1><%= @article.title %></h1>
+  
 
-<div class='container'>
-  <%= image_tag @article.image_url, :alt => @article.title, align: 'right' %>
+  <% if user_signed_in? %>
+  <%= link_to 'Edit', edit_article_path(@article) %> |
+  <% end %>
+  <%= link_to 'Back', articles_path %>
 </div>
 
-<p>
-  <%= @article.body %>
-</p>
-
-<% if user_signed_in? %>
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<% end %>
-<%= link_to 'Back', articles_path %>
-</div>
