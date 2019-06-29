@@ -65,16 +65,34 @@
 <div class='container'>
   <div class='row'>
     <div class='col-lg-10'>
+
       <%= yield %>
+
     </div>
     <div class='col-lg-2'>
-      <ul class='nav nav-pills'>
-        <li class='nav-item'><%= link_to 'All Weapons', root_path, class: 'nav-link active' %></li>
-        <li class='nav-item'><%= link_to 'All Swords || ', root_path, class: 'nav-item' %></li>
-        <li class='nav-item'><%= link_to '|| All Axes', root_path, class: 'nav-item' %></li>
-        <% Category.all.each do |category| %>
-        <li class='nav-item'><%= link_to category.name, articles_path(category: category.name) %></li>
+      <ul class='nav nav-pills flex-column'>
+        <li class='nav-item'><%= link_to 'All Weapons', root_path, class: 'nav-link' %></li>
+
+        <% Genre.all.each do |genre| %>
+
+        <li class='nav-item dropdown'>
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="<%= articles_path(genre: genre.name) %>" 
+            role="button" aria-haspopup="true" aria-expanded="false">
+            <%= genre.name %>
+          </a>
+        
+          <% Category.all.each do |category| %>
+
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="<%= articles_path(category: category.name) %>">
+              <%= category.name %>
+            </a>
+          </div>
+
+          <% end %>
         <% end %>
+        
+        </li>
     </div>
   </div>
 

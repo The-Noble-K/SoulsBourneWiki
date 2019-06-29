@@ -8,6 +8,7 @@
 
 games = Game.create([
 
+    { title: 'DemonSouls'},    
     { title: 'DarkSouls' },
     { title: 'DarkSoulsII' },
     { title: 'DarkSoulsIII' },
@@ -17,68 +18,73 @@ games = Game.create([
 
 genres = Genre.create([
 
-    { title: 'Sword' },
-    { title: 'Axe' },
-    { title: 'Polearm' },
-    { title: 'Hammer' },
-    { title: 'Dagger' },
-    { title: 'Fist' },
-    { title: 'Whip' },
-    { title: 'Ranged' },
-    { title: 'Catalyst' }
+    { name: 'Sword' },
+    { name: 'Axe' },
+    { name: 'Polearm' },
+    { name: 'Hammer' },
+    { name: 'Dagger' },
+    { name: 'Fist' },
+    { name: 'Whip' },
+    { name: 'Ranged' },
+    { name: 'Catalyst' }
 
 ])
 
 
 categories = Category.create([
 
-    # Genre - Sword
-    { title: 'StraightSwords' },
-    { title: 'Greatswords' },
-    { title: 'UltraGreatswords' },
-    { title: 'CurvedSwords' },
-    { title: 'CurvedGreatswords' },
-    { title: 'ThrustingSwords' },
-    { title: 'Katanas' },
+    # Genre - Sword | Id - 1
+    { name: 'StraightSwords' },
+    { name: 'Greatswords' },
+    { name: 'UltraGreatswords' },
+    { name: 'CurvedSwords' },
+    { name: 'CurvedGreatswords' },
+    { name: 'ThrustingSwords' },
+    { name: 'Katanas' },
 
-    # Genre - Axe
-    { title: 'Axes' },
-    { title: 'Greataxes' },
+    # Genre - Axe | Id - 2
+    { name: 'Axes' },
+    { name: 'Greataxes' },
 
-    # Genre - Polearm
-    { title: 'Spears' },
-    { title: 'Pikes' },
-    { title: 'Halberds' },
-    { title: 'Reapers' },
+    # Genre - Polearm | Id - 3
+    { name: 'Spears' },
+    { name: 'Pikes' },
+    { name: 'Halberds' },
+    { name: 'Reapers' },
 
-    # Genre - Hammer
-    { title: 'Hammers' },
-    { title: 'GreatHammers' },
+    # Genre - Hammer | Id - 4
+    { name: 'Hammers' },
+    { name: 'GreatHammers' },
 
-    # Genre - Dagger
-    { title: 'Daggers' },
+    # Genre - Dagger | Id - 5
+    { name: 'Daggers' },
 
-    # Genre - Fist
-    { title: 'Fists' },
-    { title: 'Claws' },
+    # Genre - Fist | Id - 6
+    { name: 'Fists' },
+    { name: 'Claws' },
 
-    # Genre - Whip
-    { title: 'Whips' },
+    # Genre - Whip | Id - 7
+    { name: 'Whips' },
 
-    # Genre - Ranged
-    { title: 'Bows' },
-    { title: 'Greatbows' },
-    { title: 'Crossbows' },
+    # Genre - Ranged | Id - 8
+    { name: 'Bows' },
+    { name: 'Greatbows' },
+    { name: 'Crossbows' },
 
-    # Genre - Catalyst
-    { title: 'Staves' },
-    { title: 'Talismans' },
-    { title: 'SacredChimes' },
-    { title: 'PyromancyFlame' },
+    # Genre - Catalyst | Id - 9
+    { name: 'Staves' },
+    { name: 'Talismans' },
+    { name: 'SacredChimes' },
+    { name: 'PyromancyFlame' },
 
 ])
 
 
 articles = Article.create([
-    {},
+    {
+        title: '',
+        image_url: '',
+        category_id: '',
+        genre_id: ''
+    },
 ])
